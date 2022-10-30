@@ -1,5 +1,6 @@
 library(dplyr)
 
+# Set seed for Random to generate consistent data. 
 set.seed(124)
 
 setwd("/home/kurt/Documents/Github/CPSC3990-Fall2022/scripts")
@@ -7,8 +8,8 @@ setwd("/home/kurt/Documents/Github/CPSC3990-Fall2022/scripts")
 # 40,000 maintains the number of points per class. 
 
 # RandomDataGeneration:
-point1x = c(runif(40000, min = 0, max = 1980))
-point1y = c(runif(40000, min = 0, max = 1980))
+point1x = c(runif(45000, min = 0, max = 1980))
+point1y = c(runif(45000, min = 0, max = 1980))
 point2x = c(point1x + 20)
 point2y = c(point1y + 20)
 
@@ -60,7 +61,28 @@ class13Data <- subset(finalDataAll, Classification == 13)
 class14Data <- subset(finalDataAll, Classification == 14)
 class15Data <- subset(finalDataAll, Classification == 15)
 
-write.csv(finalDataAll, "../data/16Classes/allData.csv", row.names = FALSE)
+class0Data <- subset(class0Data[1:2500,], Classification == 0)
+class1Data <- subset(class1Data[1:2500,], Classification == 1)
+class2Data <- subset(class2Data[1:2500,], Classification == 2)
+class3Data <- subset(class3Data[1:2500,], Classification == 3)
+class4Data <- subset(class4Data[1:2500,], Classification == 4)
+class5Data <- subset(class5Data[1:2500,], Classification == 5)
+class6Data <- subset(class6Data[1:2500,], Classification == 6)
+class7Data <- subset(class7Data[1:2500,], Classification == 7)
+class8Data <- subset(class8Data[1:2500,], Classification == 8)
+class9Data <- subset(class9Data[1:2500,], Classification == 9)
+class10Data <- subset(class10Data[1:2500,], Classification == 10)
+class11Data <- subset(class11Data[1:2500,], Classification == 11)
+class12Data <- subset(class12Data[1:2500,], Classification == 12)
+class13Data <- subset(class13Data[1:2500,], Classification == 13)
+class14Data <- subset(class14Data[1:2500,], Classification == 14)
+class15Data <- subset(class15Data[1:2500,], Classification == 15)
+
+finalDataAll <- rbind(class0Data, class1Data, class2Data, class3Data, class4Data,
+                      class5Data, class6Data, class7Data, class8Data, class9Data,
+                      class10Data, class11Data, class12Data, class13Data, class14Data,
+                      class15Data)
+
 write.csv(class0Data, "../data/16Classes/class0Data.csv", row.names = FALSE)
 write.csv(class1Data, "../data/16Classes/class1Data.csv", row.names = FALSE)
 write.csv(class2Data, "../data/16Classes/class2Data.csv", row.names = FALSE)
